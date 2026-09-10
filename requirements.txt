@@ -1,0 +1,11 @@
+# MediaPipe wheels currently used on Windows are built against NumPy 1.x.
+numpy>=1.26,<2
+# MediaPipe already uses the contrib wheel; installing both OpenCV wheels makes
+# cv2 resolution depend on install order.  4.11 is the last line that supports
+# NumPy 1.26 -- 4.12+ declares numpy>=2 and `pip check` will flag it.
+# If `pip check` complains here, drop the redundant wheel:
+#   python -m pip uninstall opencv-python
+opencv-contrib-python>=4.9,<4.12
+mediapipe>=0.10.14,<0.11
+moderngl>=5.10,<6
+pygame-ce>=2.5,<3
